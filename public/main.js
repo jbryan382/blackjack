@@ -22,12 +22,28 @@ let playerHand = []
 
 let dealerHand = []
 
+// Used when popping and pushing values out of the arrays for sum total
+let playerPoints = []
+
+let dealerPoints = []
+
 const buildDeck = () => {
   for (let cardsvalue = 0; cardsvalue < cards.length; cardsvalue++) {
     for (let suitvalue = 0; suitvalue < suit.length; suitvalue++) {
-      let cardText = cards[cardsvalue] + ' of ' + suit[suitvalue]
+      let cardWeight = parseInt(cardsvalue[cards])
+      if (cards[cardsValue] === "king" || cards[cardsValue] === "queen" || cards[cardsValue] === "jack"){
+        cardWeight 
+      }
+      // let cardText = cards[cardsvalue] + ' of ' + suit[suitvalue]
       deck.push(cardText)
     }
+  }
+
+  let card = {
+    Value: cards[cardsvalue]
+    Suit: cards[suitValue]
+    Weight: weight
+    Name: name
   }
 }
 
@@ -38,23 +54,24 @@ const shuffleDeck = () => {
   }
 }
 
+// Add in first deal button to provide the player with 2 cards as in the rules
+
 const dealCardPlayer = event => {
   let drawnCard = deck.splice(0, 1)
   const _li = document.createElement('li')
   _li.textContent = drawnCard
   document.querySelector('.player').appendChild(_li)
-  // for (let i = 51; i >= 0; i--) {
-  //   const j = Math.floor(Math.random() * (i + 1))
-  //   let hand = deck.splice(j, 1)
-  //   document.querySelector('Hand').textContent = hand
-  //   document.querySelector('Hand').appendChild(hand)
-  // }
+  // document.querySelector('.dealer').appendChild(_li)
+  // ** Create Points addition for drawn cards
 }
+
+// **Might Not Be Needed**
 const dealCardDealer = event => {
   let drawnCard = deck.splice(0, 1)
   const _li = document.createElement('li')
   _li.textContent = drawnCard
   document.querySelector('.dealer').appendChild(_li)
+}
 
 const main = () => {
   buildDeck()
@@ -63,7 +80,7 @@ const main = () => {
   console.log(deck)
   const button = document.querySelector('.draw')
   button.addEventListener('click', dealCardPlayer)
-  // const button = document.querySelector('.draw')
-  // button.addEventListener('click', dealCardDealer)
+  button.addEventListener('click', dealCardDealer)
 }
-  document.addEventListener('DOMContentLoaded', main)
+
+document.addEventListener('DOMContentLoaded', main)
