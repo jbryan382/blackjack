@@ -9,4 +9,50 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  background-color: green;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  color: #06d6a0;
+  background-color: black;
+  border: dotted #06d6a0 1rem;
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem;
+}
+
+.deck {
+  background-color: red;
+  border: solid white;
+  border-radius: 0.5rem;
+  padding: 5rem 3rem 5rem 3rem;
+}
+
+.draw {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+}
+li {
+  list-style: none;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 5rem 1rem 5rem 1rem;
+  margin: 0.2rem;
 }
