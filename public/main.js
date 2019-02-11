@@ -68,13 +68,15 @@ const firstDeal = () => {
   const _li = document.createElement('li')
   _li.textContent = drawnCard
   document.querySelector('.player').appendChild(_li)
+  document.querySelector('.dealer').appendChild(_li)
   }
 }
 
 const dealCardPlayer = event => {
   let drawnCard = deck.splice(0, 1)
+  playerHand.push(drawnCard)
   const _li = document.createElement('li')
-  _li.textContent = drawnCard
+  _li.textContent = playerHand
   document.querySelector('.player').appendChild(_li)
   // document.querySelector('.dealer').appendChild(_li)
   // ** Create Points addition for drawn cards
@@ -90,9 +92,10 @@ const dealCardPlayer = event => {
 
 // **Might Not Be Needed**
 const dealCardDealer = event => {
-  let drawnCard = deck.splice(0, 1)
+  let drawnCard2 = deck.splice(0, 1)
+  dealerHand.push(drawnCard2)
   const _li = document.createElement('li')
-  _li.textContent = drawnCard
+  _li.textContent = dealerHand
   document.querySelector('.dealer').appendChild(_li)
   // ** Create Points addition for drawn cards
   let dealerPoints = dealerPoints.push(drawnCard)
@@ -110,6 +113,15 @@ const stand = () => {
   document.querySelector('button').disabled
 }
 
+const reset = () => {
+  buildDeck()
+  shuffleDeck()
+  playerPoints.length = 0
+  dealerPoints.length = 0
+  playerHand.length = 0
+  dealerHand.length = 0
+}
+
 const main = () => {
   buildDeck()
   shuffleDeck()
@@ -118,10 +130,12 @@ const main = () => {
   const button = document.querySelector('.draw')
   const button2 = document.querySelector('.first-deal')
   const button3 = document.querySelector('.stand')
+  const button4 = document.querySelector('.reset')
   button2.addEventListener('click', firstDeal)
   button.addEventListener('click', dealCardPlayer)
   button.addEventListener('click', dealCardDealer)
   button3.addEventListener('click', stand)
+  button4.addEventListener('click', reset)
 }
 
 document.addEventListener('DOMContentLoaded', main)
