@@ -17,7 +17,7 @@ let cards = [
 let suit = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 
 // Deck using the images
-// let deckImages = []
+// let deckImages = [/images/2_of_clubs.svg]
 
 let deck = []
 
@@ -80,7 +80,11 @@ const dealCardPlayer = event => {
   // ** Create Points addition for drawn cards
   let playerPoints = playerPoints.push(drawnCard)
   if (playerPoints === 21 && playerPoints !== 21) {
-    console.log("winner")
+    console.log("Player winner")
+    document.createElement('h1').querySelector('.results').appendChild("Player Won")
+  }
+  if (playerPoints < 21) {
+    console.log ("Bust")
   }
 }
 
@@ -93,12 +97,17 @@ const dealCardDealer = event => {
   // ** Create Points addition for drawn cards
   let dealerPoints = dealerPoints.push(drawnCard)
   if (dealerPoints === 21 && playerPoints !== 21) {
-    console.log("winner")
+    console.log("Dealer winner")
+    document.createElement('h1').querySelector('.results').appendChild("Dealer Won")
   }
   if (dealerPoints >= 17) {
     // stop running the dealer drawing
     return
   }
+}
+
+const stand = () => {
+  document.querySelector('button').disabled
 }
 
 const main = () => {
@@ -108,9 +117,11 @@ const main = () => {
   console.log(deck)
   const button = document.querySelector('.draw')
   const button2 = document.querySelector('.first-deal')
+  const button3 = document.querySelector('.stand')
   button2.addEventListener('click', firstDeal)
   button.addEventListener('click', dealCardPlayer)
   button.addEventListener('click', dealCardDealer)
+  button3.addEventListener('click', stand)
 }
 
 document.addEventListener('DOMContentLoaded', main)

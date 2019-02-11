@@ -50,6 +50,18 @@ section {
   margin: 0rem 1rem 0rem 1rem;
 }
 
+.stand {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 0rem 1rem 0rem 1rem;
+}
+
+.reset {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 0rem 1rem 0rem 1rem;
+}
+
 ul {
   display: flex;
   flex-wrap: wrap;
