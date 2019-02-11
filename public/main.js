@@ -37,7 +37,7 @@ const buildDeck = () => {
       if (cards[cardsvalue] === "ace") {
         weight = 11
       }
-      // let cardText = cards[cardsvalue] + ' of ' + suit[suitvalue]
+      cardWeight = cards[cardsvalue] + ' of ' + suit[suitvalue]
       deck.push(cardWeight)
     }
   }
@@ -46,7 +46,7 @@ const buildDeck = () => {
     Value: cards[cardsvalue]
     Suit: cards[suitValue]
     Weight: weight
-    Name: name
+    // Name: name
   }
 }
 
@@ -59,6 +59,15 @@ const shuffleDeck = () => {
 
 // Add in first deal button to provide the player with 2 cards as in the rules
 
+const firstDeal = () => {
+  for (let i = 0; i < 3; i++) {
+    let drawnCard = deck.splice(0, 1)
+  const _li = document.createElement('li')
+  _li.textContent = drawnCard
+  document.querySelector('.player').appendChild(_li)
+  }
+}
+
 const dealCardPlayer = event => {
   let drawnCard = deck.splice(0, 1)
   const _li = document.createElement('li')
@@ -66,6 +75,7 @@ const dealCardPlayer = event => {
   document.querySelector('.player').appendChild(_li)
   // document.querySelector('.dealer').appendChild(_li)
   // ** Create Points addition for drawn cards
+  let points = 
 }
 
 // **Might Not Be Needed**
@@ -82,6 +92,8 @@ const main = () => {
 
   console.log(deck)
   const button = document.querySelector('.draw')
+  const button2 = document.querySelector('.first-deal')
+  button2.addEventListener('click', firstDeal)
   button.addEventListener('click', dealCardPlayer)
   button.addEventListener('click', dealCardDealer)
 }

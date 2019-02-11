@@ -41,6 +41,13 @@ section {
 .draw {
   border-radius: 0.5rem;
   padding: 0.5rem;
+  margin: 0rem 1rem 0rem 1rem;
+}
+
+.first-deal {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 0rem 1rem 0rem 1rem;
 }
 
 ul {
