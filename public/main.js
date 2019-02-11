@@ -31,11 +31,14 @@ const buildDeck = () => {
   for (let cardsvalue = 0; cardsvalue < cards.length; cardsvalue++) {
     for (let suitvalue = 0; suitvalue < suit.length; suitvalue++) {
       let cardWeight = parseInt(cardsvalue[cards])
-      if (cards[cardsValue] === "king" || cards[cardsValue] === "queen" || cards[cardsValue] === "jack"){
-        cardWeight 
+      if (cards[cardsvalue] === "king" || cards[cardsvalue] === "queen" || cards[cardsvalue] === "jack"){
+        weight = 10
+      }
+      if (cards[cardsvalue] === "ace") {
+        weight = 11
       }
       // let cardText = cards[cardsvalue] + ' of ' + suit[suitvalue]
-      deck.push(cardText)
+      deck.push(cardWeight)
     }
   }
 
