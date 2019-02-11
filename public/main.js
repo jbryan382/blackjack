@@ -16,6 +16,9 @@ let cards = [
 
 let suit = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 
+// Deck using the images
+// let deckImages = []
+
 let deck = []
 
 let playerHand = []
@@ -75,7 +78,10 @@ const dealCardPlayer = event => {
   document.querySelector('.player').appendChild(_li)
   // document.querySelector('.dealer').appendChild(_li)
   // ** Create Points addition for drawn cards
-  let points = 
+  let playerPoints = playerPoints.push(drawnCard)
+  if (playerPoints === 21 && playerPoints !== 21) {
+    console.log("winner")
+  }
 }
 
 // **Might Not Be Needed**
@@ -84,6 +90,15 @@ const dealCardDealer = event => {
   const _li = document.createElement('li')
   _li.textContent = drawnCard
   document.querySelector('.dealer').appendChild(_li)
+  // ** Create Points addition for drawn cards
+  let dealerPoints = dealerPoints.push(drawnCard)
+  if (dealerPoints === 21 && playerPoints !== 21) {
+    console.log("winner")
+  }
+  if (dealerPoints >= 17) {
+    // stop running the dealer drawing
+    return
+  }
 }
 
 const main = () => {
